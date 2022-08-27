@@ -1,0 +1,9 @@
+{
+  "extensionId": {
+    "name": "audioviz2",
+    "path": "extensions/audioviz2/audioviz2.yy"
+  },
+  "resourceVersion": "1.0",
+  "resourceType": "GMExtensionConfigSet",
+  "configurables": null
+}
