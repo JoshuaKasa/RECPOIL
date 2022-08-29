@@ -62,5 +62,11 @@ options = [
 	{
 		game_restart();
 	}),
+	
+	new Option("Bomb", "click", ["-150"],
+	function()
+	{
+		damage_player(150, "explosion");
+	}),
 ];
 length = array_length(options);

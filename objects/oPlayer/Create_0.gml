@@ -45,3 +45,8 @@ music_discs = [];
 drawing = false;
 
 audio_listener_orientation(0,1,0,0,0,1);
+
+equipped_suit = -1;
+def_p = 0;
+def_e = 0;
+def_t = 0;

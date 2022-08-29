@@ -29,7 +29,7 @@
   "overriddenProperties": [],
   "parent": {
     "name": "Player",
-    "path": "folders/Objects/Player.yy",
+    "path": "folders/Objects/Player/Player.yy",
   },
   "resourceVersion": "1.0",
   "name": "oCrosshair",

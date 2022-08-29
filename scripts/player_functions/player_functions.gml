@@ -17,3 +17,21 @@ function screen_shake(time, pow)
 		scale = choose(-1,1);
 	}
 }
+
+function damage_player(damage, damage_type)
+{
+	with (oPlayer)
+	{
+		switch (damage_type)
+		{	
+			case "projectile": hp -= (def_p == 0) ? damage : ((100 * damage / def_p) * damage / 50) + 2;
+			break;	
+			
+			case "explosion": hp -= (def_e == 0) ? damage : (1 - (def_e / (def_e + 200))) * 100;
+			break;	
+			
+			case "toxicity": hp -= -1 * (damage * (1 - def_t));
+			break;	
+		}
+	}
+}

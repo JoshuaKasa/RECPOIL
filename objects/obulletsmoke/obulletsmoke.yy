@@ -28,8 +28,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Planes",
-    "path": "folders/Objects/Weapons/Planes.yy",
+    "name": "Managers",
+    "path": "folders/Objects/Weapons/Planes/Managers.yy",
   },
   "resourceVersion": "1.0",
   "name": "oBulletSmoke",

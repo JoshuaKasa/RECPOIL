@@ -2,6 +2,7 @@ draw_sprite_ext(sShadow, 1, x,y + 4, image_xscale,image_yscale, 0, image_blend, 
 draw_self();
 
 var gun = instance_nearest(x,y, GUNS);
+var suit = instance_nearest(x,y, SUIT);
 
 if (guns < max_guns && !array_exists(inventory, gun))
 {
@@ -9,6 +10,10 @@ if (guns < max_guns && !array_exists(inventory, gun))
 	{
 		draw_sprite_ext(sEquip, 1, x, y - 10, oscillate(1,1.3, 60, 2), oscillate(1,1.3, 60, 4), 1, image_blend, image_alpha);
 	}
+}
+if (distance_to_object(suit) < 10 && equipped_suit != suit)
+{
+	draw_sprite_ext(sEquip, 1, x, y - 10, oscillate(1,1.3, 60, 2), oscillate(1,1.3, 60, 4), 1, image_blend, image_alpha);
 }
 
 if (distance_to_object(oJukebox) < 10)

@@ -40,7 +40,7 @@ function use_weapon(weapon)
 			if (image_angle > 90) && (image_angle < 270) then image_yscale = -1;
 			else image_yscale = 1;
 			
-			var button = (automatic == true) ? mouse_check_button(mb_left) : mouse_check_button_pressed(mb_left);
+			var button = (automatic == true) ?SHOOT_AUTOMATIC : SHOOT;
 			
 			if (delay > 0) then delay -= 1;
 			if (button && delay == 0 && magazine > 0 && reloading == false)
@@ -97,7 +97,7 @@ function use_weapon(weapon)
 			}
 
 			// Ammoes
-			var rel = (revolver == true) ? keyboard_check(ord("R")) : keyboard_check_pressed(ord("R"));
+			var rel = (revolver == true) ? RELOAD : RELOAD_AUTOMATIC;
 			
 			if (magazine == 0 && reloading == false || rel && reloading == false)
 			{
@@ -111,7 +111,7 @@ function use_weapon(weapon)
 			}
 			
 			// Unjamming gun
-			if (jammed == true && keyboard_check_pressed(ord("J")))
+			if (jammed == true && UNJAM)
 			{
 				jammed = false;
 				

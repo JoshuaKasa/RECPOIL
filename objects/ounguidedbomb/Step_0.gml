@@ -22,7 +22,5 @@ if (fall_time == final_time)
 	var final_x = xstart + (xspd * (final_time * 60));
 	var final_y = 0;
 
-	print(string(x) + " : " + string(y));
-	print(string(final_x) + " : " + string(final_y));
 	instance_destroy();
 }

@@ -74,7 +74,7 @@ if (guns < max_guns && !array_exists(inventory, gun))
 {
 	if (distance_to_object(gun) < 10)
 	{
-		if (keyboard_check_pressed(ord("E")))
+		if (EQUIP)
 		{
 			guns += 1;
 			array_push(inventory, gun);
@@ -135,7 +135,7 @@ if (len != 0)
 }
 
 // Remove gun
-if (keyboard_check_pressed(ord("X"))) 
+if (REMOVE_GUN) 
 {
 	oCursor.lerp_angle = true;
 	
@@ -151,7 +151,7 @@ if (keyboard_check_pressed(ord("X")))
 }
 
 // Drop gun
-if (keyboard_check_pressed(ord("T")) && hand != -1)
+if (UNEQUIP_GUN && hand != -1)
 {
 	oCursor.lerp_angle = true;
 	
@@ -169,7 +169,7 @@ if (keyboard_check_pressed(ord("T")) && hand != -1)
 }
 
 // Kill player
-if (hp == 0 && !instance_exists(oDeathscreen)) 
+if (hp <= 0 && !instance_exists(oDeathscreen)) 
 {
 	can_move = false;
 	
@@ -177,14 +177,14 @@ if (hp == 0 && !instance_exists(oDeathscreen))
 }
 
 // Music discs
-if (distance_to_object(oJukebox) < 10 && keyboard_check_pressed(ord("E")))
+if (distance_to_object(oJukebox) < 10 && EQUIP)
 {
 	drawing = !drawing;
 
 }
 
 // Throwing grenade
-if (keyboard_check_pressed(ord("G")))
+if (GRENADE)
 {
 	var grenade = instance_create_layer(x,y, "Instances", oFlashGrenade);
 	
@@ -199,7 +199,7 @@ if (keyboard_check_pressed(ord("G")))
 audio_listener_position(x,y, 0);
 
 // Vending machine
-if (distance_to_object(oVendingMachine) < 10 && keyboard_check_pressed(ord("E")))
+if (distance_to_object(oVendingMachine) < 10 && EQUIP)
 {
 	oVendingMachine.drawing_d = !oVendingMachine.drawing_d;
 }
@@ -207,8 +207,34 @@ if (distance_to_object(oVendingMachine) < 10 && keyboard_check_pressed(ord("E"))
 // Calling aerial support
 if (!instance_exists(PLANES))
 {
-	if (keyboard_check_pressed(ord("C")))
+	if (CAS)
 	{
 		instance_create_layer(0,0, "Weapons", oA10);	
+	}
+}
+
+// Removing and putting suit
+var suit = instance_nearest(x,y, SUIT);
+
+if (UNEQUIP_SUIT)
+{
+	with (equipped_suit) equi = false;
+}
+if (distance_to_object(suit) < 10)
+{
+	if (EQUIP)
+	{
+		if (suit.equi == false)
+		{
+			equipped_suit = suit;
+			def_p = suit.defense_projectiles;
+			def_e = suit.defense_explosion;
+			def_t = suit.defense_toxicity;
+			
+			with (suit)
+			{
+				if (equi == false) then equi = true;
+			}
+		}
 	}
 }

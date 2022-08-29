@@ -17,16 +17,16 @@ position_angle = animcurve_channel_evaluate(curve_angle, scale_percent);
 camera_set_view_angle(cam, (position_angle * 1.5) * scale);
 
 // Setting size
-if (mouse_wheel_up()) 
-{
-	multx -= 16;
-	multy -= 9;
-}
-else if (mouse_wheel_down()) 
-{
-	multx += 16;
-	multy += 9;
-}
+//if (mouse_wheel_up()) 
+//{
+//	multx -= 16;
+//	multy -= 9;
+//}
+//else if (mouse_wheel_down()) 
+//{
+//	multx += 16;
+//	multy += 9;
+//}
 
 xto_lerp = lerp(xto_lerp, multx + 256 * position_scale, 0.07);
 yto_lerp = lerp(yto_lerp, multy + 144 * position_scale, 0.07);

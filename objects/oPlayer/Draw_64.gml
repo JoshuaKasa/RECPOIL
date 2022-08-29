@@ -8,6 +8,7 @@ var g_height = display_get_gui_height();
 
 if (can_move == true && drawing == false)
 {
+	// Draw health
 	if (UI_on == true)
 	{
 		draw_sprite_ext(sHP, 1, UI_x_start,10, 1,1, 0,c_white, 0.5);

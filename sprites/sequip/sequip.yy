@@ -70,7 +70,7 @@
   "nineSlice": null,
   "parent": {
     "name": "Player",
-    "path": "folders/Sprites/Player.yy",
+    "path": "folders/Sprites/Player/Player.yy",
   },
   "resourceVersion": "1.0",
   "name": "sEquip",
