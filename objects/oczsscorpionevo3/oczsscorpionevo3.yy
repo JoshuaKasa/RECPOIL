@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "sCSScorpionEVO3",
-    "path": "sprites/sCSScorpionEVO3/sCSScorpionEVO3.yy",
+    "name": "sCZScorpionEVO3",
+    "path": "sprites/sCZScorpionEVO3/sCZScorpionEVO3.yy",
   },
   "solid": false,
   "visible": true,
@@ -30,13 +30,14 @@
   "properties": [],
   "overriddenProperties": [
     {"propertyId":{"name":"damage","path":"objects/GUNS/GUNS.yy",},"objectId":{"name":"GUNS","path":"objects/GUNS/GUNS.yy",},"value":"1","resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMOverriddenProperty",},
+    {"propertyId":{"name":"sound","path":"objects/GUNS/GUNS.yy",},"objectId":{"name":"GUNS","path":"objects/GUNS/GUNS.yy",},"value":"sndCZSScorpionEVO3","resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMOverriddenProperty",},
   ],
   "parent": {
     "name": "Weapons",
     "path": "folders/Objects/Weapons/Weapons.yy",
   },
   "resourceVersion": "1.0",
-  "name": "oCSSScorpionEVO3",
+  "name": "oCZSScorpionEVO3",
   "tags": [],
   "resourceType": "GMObject",
 }

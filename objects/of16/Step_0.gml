@@ -18,7 +18,7 @@ if (shooting_time < 0)
 		
 		var px = irandom_range(pointx - 20,pointx + 20);
 		var py = irandom_range(pointy - 20,pointy + 20);
-		var bul = instance_create_layer(x,y, "Weapons", oBullet30mm);
+		var bul = instance_create_layer(x,y, "Weapons", oBullet20mm);
 		
 		with (bul)
 		{

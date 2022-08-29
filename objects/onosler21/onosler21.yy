@@ -41,6 +41,7 @@
     {"propertyId":{"name":"bullets","path":"objects/GUNS/GUNS.yy",},"objectId":{"name":"GUNS","path":"objects/GUNS/GUNS.yy",},"value":"1","resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMOverriddenProperty",},
     {"propertyId":{"name":"revolver","path":"objects/GUNS/GUNS.yy",},"objectId":{"name":"GUNS","path":"objects/GUNS/GUNS.yy",},"value":"true","resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMOverriddenProperty",},
     {"propertyId":{"name":"damage","path":"objects/GUNS/GUNS.yy",},"objectId":{"name":"GUNS","path":"objects/GUNS/GUNS.yy",},"value":"55","resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMOverriddenProperty",},
+    {"propertyId":{"name":"sound","path":"objects/GUNS/GUNS.yy",},"objectId":{"name":"GUNS","path":"objects/GUNS/GUNS.yy",},"value":"sndNosler21","resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMOverriddenProperty",},
   ],
   "parent": {
     "name": "Weapons",

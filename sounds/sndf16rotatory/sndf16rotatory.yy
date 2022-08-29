@@ -14,8 +14,8 @@
   "soundFile": "sndf16rotatory.mp3",
   "duration": 1.201633,
   "parent": {
-    "name": "Sounds",
-    "path": "folders/Sounds.yy",
+    "name": "Planes",
+    "path": "folders/Sounds/Planes.yy",
   },
   "resourceVersion": "1.0",
   "name": "sndF16Rotatory",

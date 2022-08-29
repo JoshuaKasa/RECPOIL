@@ -14,8 +14,8 @@
   "soundFile": "sndcharacter.mp3",
   "duration": 0.626939,
   "parent": {
-    "name": "Sounds",
-    "path": "folders/Sounds.yy",
+    "name": "Jukebox",
+    "path": "folders/Sounds/Jukebox.yy",
   },
   "resourceVersion": "1.0",
   "name": "sndCharacter",

@@ -14,8 +14,8 @@
   "soundFile": "snda10rotatory.wav",
   "duration": 1.22,
   "parent": {
-    "name": "Sounds",
-    "path": "folders/Sounds.yy",
+    "name": "Planes",
+    "path": "folders/Sounds/Planes.yy",
   },
   "resourceVersion": "1.0",
   "name": "sndA10Rotatory",

@@ -209,7 +209,7 @@ if (!instance_exists(PLANES))
 {
 	if (CAS)
 	{
-		instance_create_layer(0,0, "Weapons", oA10);	
+		instance_create_layer(0,0, "Weapons", oF16);	
 	}
 }
 

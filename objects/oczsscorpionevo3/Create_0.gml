@@ -1,5 +1,5 @@
 
-delay = 3;
+delay = 4;
 d = delay;
 
 recoil = 2;

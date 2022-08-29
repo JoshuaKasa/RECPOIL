@@ -14,8 +14,8 @@
   "soundFile": "mscwind.mp3",
   "duration": 53.838367,
   "parent": {
-    "name": "Sounds",
-    "path": "folders/Sounds.yy",
+    "name": "Ambience",
+    "path": "folders/Sounds/Ambience.yy",
   },
   "resourceVersion": "1.0",
   "name": "mscWind",

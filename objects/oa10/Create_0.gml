@@ -3,7 +3,7 @@ dir = image_xscale;
 
 xspeed = 4;
 
-bullets = irandom_range(50,60);
+bullets = irandom_range(45,50);
 shooting_time = 2.5 * room_speed;
 fire_speed = irandom_range(20,45); 
 

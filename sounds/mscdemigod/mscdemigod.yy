@@ -14,8 +14,8 @@
   "soundFile": "mscdemigod.mp3",
   "duration": 206.10612,
   "parent": {
-    "name": "Sounds",
-    "path": "folders/Sounds.yy",
+    "name": "Jukebox",
+    "path": "folders/Sounds/Jukebox.yy",
   },
   "resourceVersion": "1.0",
   "name": "mscDemiGod",

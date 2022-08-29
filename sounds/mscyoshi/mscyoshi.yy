@@ -14,8 +14,8 @@
   "soundFile": "mscyoshi.mp3",
   "duration": 174.02776,
   "parent": {
-    "name": "Sounds",
-    "path": "folders/Sounds.yy",
+    "name": "Jukebox",
+    "path": "folders/Sounds/Jukebox.yy",
   },
   "resourceVersion": "1.0",
   "name": "mscYoshi",

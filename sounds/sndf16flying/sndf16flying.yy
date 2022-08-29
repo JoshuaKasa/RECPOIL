@@ -14,8 +14,8 @@
   "soundFile": "sndf16flying.mp3",
   "duration": 17.712,
   "parent": {
-    "name": "Sounds",
-    "path": "folders/Sounds.yy",
+    "name": "Planes",
+    "path": "folders/Sounds/Planes.yy",
   },
   "resourceVersion": "1.0",
   "name": "sndF16Flying",

@@ -55,6 +55,9 @@ function use_weapon(weapon)
 					if (1 > irandom(durability * 100)) then jammed = true;
 				
 					// Shooting
+					audio_play_sound(sound, 10, false);
+					audio_sound_pitch(sound, random_range(0.95,1.25));
+					
 					magazine -= 1;
 					delay = d;
 					recoil = r;

@@ -14,8 +14,8 @@
   "soundFile": "msccrickets.mp3",
   "duration": 107.07592,
   "parent": {
-    "name": "Sounds",
-    "path": "folders/Sounds.yy",
+    "name": "Ambience",
+    "path": "folders/Sounds/Ambience.yy",
   },
   "resourceVersion": "1.0",
   "name": "mscCrickets",

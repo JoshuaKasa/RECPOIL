@@ -14,8 +14,8 @@
   "soundFile": "sndf16fire.mp3",
   "duration": 1.671837,
   "parent": {
-    "name": "Sounds",
-    "path": "folders/Sounds.yy",
+    "name": "Planes",
+    "path": "folders/Sounds/Planes.yy",
   },
   "resourceVersion": "1.0",
   "name": "sndF16Fire",

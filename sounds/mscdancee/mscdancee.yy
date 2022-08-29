@@ -14,8 +14,8 @@
   "soundFile": "mscdancee.mp3",
   "duration": 101.12,
   "parent": {
-    "name": "Sounds",
-    "path": "folders/Sounds.yy",
+    "name": "Jukebox",
+    "path": "folders/Sounds/Jukebox.yy",
   },
   "resourceVersion": "1.0",
   "name": "mscDANCEE",

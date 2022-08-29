@@ -14,8 +14,8 @@
   "soundFile": "msczyzz.mp3",
   "duration": 154.59265,
   "parent": {
-    "name": "Sounds",
-    "path": "folders/Sounds.yy",
+    "name": "Jukebox",
+    "path": "folders/Sounds/Jukebox.yy",
   },
   "resourceVersion": "1.0",
   "name": "mscZyzz",

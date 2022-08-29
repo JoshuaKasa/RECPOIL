@@ -38,6 +38,7 @@
     {"propertyId":{"name":"reload_magazine","path":"objects/GUNS/GUNS.yy",},"objectId":{"name":"GUNS","path":"objects/GUNS/GUNS.yy",},"value":"oSmallMagazine","resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMOverriddenProperty",},
     {"propertyId":{"name":"automatic","path":"objects/GUNS/GUNS.yy",},"objectId":{"name":"GUNS","path":"objects/GUNS/GUNS.yy",},"value":"false","resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMOverriddenProperty",},
     {"propertyId":{"name":"damage","path":"objects/GUNS/GUNS.yy",},"objectId":{"name":"GUNS","path":"objects/GUNS/GUNS.yy",},"value":"1","resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMOverriddenProperty",},
+    {"propertyId":{"name":"sound","path":"objects/GUNS/GUNS.yy",},"objectId":{"name":"GUNS","path":"objects/GUNS/GUNS.yy",},"value":"sndColtM1911","resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMOverriddenProperty",},
   ],
   "parent": {
     "name": "Weapons",

@@ -14,8 +14,8 @@
   "soundFile": "mscdoom.mp3",
   "duration": 412.73468,
   "parent": {
-    "name": "Sounds",
-    "path": "folders/Sounds.yy",
+    "name": "Jukebox",
+    "path": "folders/Sounds/Jukebox.yy",
   },
   "resourceVersion": "1.0",
   "name": "mscDoom",
