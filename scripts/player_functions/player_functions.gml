@@ -18,9 +18,9 @@ function screen_shake(time, pow)
 	}
 }
 
-function damage_player(damage, damage_type)
+function damage_player(player, damage, damage_type)
 {
-	with (oPlayer)
+	with (player)
 	{
 		switch (damage_type)
 		{	

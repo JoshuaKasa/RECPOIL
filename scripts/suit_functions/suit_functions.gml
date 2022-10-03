@@ -2,15 +2,15 @@ function is_on()
 {
 	if (equi == true)
 	{
-		x = oPlayer.x;
-		y = oPlayer.y;
+		x = owner.x;
+		y = owner.y;
 
-		image_xscale = oPlayer.image_xscale;
-		image_yscale = oPlayer.image_yscale;
+		image_xscale = owner.image_xscale;
+		image_yscale = owner.image_yscale;
 			
-		image_angle = oPlayer.image_angle;
+		image_angle = owner.image_angle;
 		
-		depth = oPlayer.depth - 1;		
+		depth = owner.depth - 1;		
 	}
 	else
 	{

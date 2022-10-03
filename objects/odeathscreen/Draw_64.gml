@@ -17,7 +17,7 @@ if (timer > 300)
 {
 	draw_text(w/2,h/2, text);
 	
-	if (timer > 360) then text = "You died";
-	if (timer > 460) then text = "You died\nPress R to restart";
+	if (timer > 360) then text = player_dead + " you died";
+	if (timer > 460) then text = player_dead + " you died\nPress R to restart";
 	if (timer > 560) then alpha -= 1/120;
 }

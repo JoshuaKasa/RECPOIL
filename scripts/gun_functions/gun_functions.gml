@@ -1,6 +1,6 @@
 function drop_empty_magazine(weapon)
 {
-	var empty_mag = instance_create_layer(oPlayer.x,oPlayer.y, "Bullets", weapon.reload_magazine);
+	var empty_mag = instance_create_layer(owner.x,owner.y, "Bullets", weapon.reload_magazine);
 
 	with (empty_mag)
 	{
@@ -10,7 +10,7 @@ function drop_empty_magazine(weapon)
 
 function create_shell()
 {
-	var wp = oPlayer.inventory[oPlayer.currently_equipped];
+	var wp = owner.inventory[owner.currently_equipped];
 	
 	instance_create_layer(wp.x + irandom_range(-3,3),wp.y + irandom_range(-3, 3), "Bullets", shell);
 }
@@ -18,7 +18,7 @@ function create_shell()
 function use_weapon(weapon)
 {
 	// Get ammoes
-	ammoes = variable_instance_get(oPlayer, ammoe_type);
+	ammoes = variable_instance_get(owner, ammoe_type);
 	
 	// Using weapon
 	if (equipped == true)
@@ -26,10 +26,13 @@ function use_weapon(weapon)
 		if (in_hand == true)
 		{
 			// Weapon
-			var angle = point_direction(oPlayer.x,oPlayer.y, MOUSE_X,MOUSE_Y);
+			var mouse_xx = (owner == oPlayer.id) ? oCrosshair.x : oCrosshair2.x
+			var mouse_yy = (owner == oPlayer.id) ? oCrosshair.y : oCrosshair2.y
+			
+			var angle = point_direction(owner.x,owner.y, mouse_xx,mouse_yy);
 
-			x = oPlayer.x + lengthdir_x(25, angle);
-			y = oPlayer.y + lengthdir_y(25, angle);
+			x = owner.x + lengthdir_x(25, angle);
+			y = owner.y + lengthdir_y(25, angle);
 
 			recoil = lerp(recoil, 0,0.3);
 			x -= lengthdir_x(recoil, image_angle);
@@ -40,7 +43,7 @@ function use_weapon(weapon)
 			if (image_angle > 90) && (image_angle < 270) then image_yscale = -1;
 			else image_yscale = 1;
 			
-			var button = (automatic == true) ?SHOOT_AUTOMATIC : SHOOT;
+			var button = (owner == oPlayer.id) ? ((automatic == true) ? SHOOT_AUTOMATIC : SHOOT) : ((automatic == true) ? PAD_SHOOT_AUTOMATIC : PAD_SHOOT);
 			
 			if (delay > 0) then delay -= 1;
 			if (button && delay == 0 && magazine > 0 && reloading == false)
@@ -63,12 +66,13 @@ function use_weapon(weapon)
 					recoil = r;
 				
 					create_shell();
-	
-					display_mouse_set(display_mouse_get_x(),display_mouse_get_y() - irandom_range(weapon.recoil * 15, weapon.recoil * 20));
-
-					oPlayer.x -= lengthdir_x(recoil/4, image_angle);
-					oPlayer.y -= lengthdir_y(recoil/4, image_angle);
-					oPlayer.percent = 0;
+					
+					if (owner == oPlayer.id) then display_mouse_set(display_mouse_get_x(),display_mouse_get_y() - irandom_range(weapon.recoil * 15, weapon.recoil * 20));
+					else oCursor2.y_pad -= irandom_range(weapon.recoil * 15, weapon.recoil * 20)
+					
+					owner.x -= lengthdir_x(recoil/4, image_angle);
+					owner.y -= lengthdir_y(recoil/4, image_angle);
+					owner.percent = 0;
 				
 					oCursor.percent = 0;
 				
@@ -100,14 +104,14 @@ function use_weapon(weapon)
 			}
 
 			// Ammoes
-			var rel = (revolver == true) ? RELOAD : RELOAD_AUTOMATIC;
+			var rel = (owner == oPlayer.id) ? ((revolver == true) ? RELOAD : RELOAD_AUTOMATIC) : ((revolver == true) ? PAD_RELOAD : PAD_RELOAD_AUTOMATIC);
 			
 			if (magazine == 0 && reloading == false || rel && reloading == false)
 			{
 				if (ammoes > 0) 
 				{
-					oPlayer.percent_reload_start = 0;
-					oPlayer.alpha_reload = 1;	
+					owner.percent_reload_start = 0;
+					owner.alpha_reload = 1;	
 
 					reloading = true;
 				}
@@ -145,9 +149,9 @@ function draw_weapon_ammoes()
 {
 	draw_set_halign(fa_left);
 	draw_set_font(fFont);
-	draw_sprite_ext(sAmmoes, 1, oPlayer.UI_ammo_start,10, 1,1, 0,c_white, 0.5);
+	draw_sprite_ext(sAmmoes, 1, owner.UI_ammo_start,85, 1,1, 0,c_white, 0.5);
 	draw_set_color(c_ltgray);
-	draw_text(oPlayer.UI_ammo_start + 1,20, string(magazine) + " / " + string(ammoes));	
+	draw_text(owner.UI_ammo_start + 1,80, string(magazine) + " / " + string(ammoes));	
 }
 
 function draw_weapon()
@@ -179,13 +183,13 @@ function reload()
 			{
 				magazine = clamp(ammoes, 0,magazine + 1);
 				ammoes = clamp(ammoes - 1, 0,9999);
-				variable_instance_set(oPlayer, ammoe_type, ammoes);
+				variable_instance_set(owner, ammoe_type, ammoes);
 			}
 			else
 			{
 				magazine = clamp(ammoes, 0,initial_m);
 				ammoes = clamp(ammoes - magazine, 0,9999);
-				variable_instance_set(oPlayer, ammoe_type, ammoes);
+				variable_instance_set(owner, ammoe_type, ammoes);
 			}
 			
 			reloading = false;

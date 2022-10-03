@@ -2,8 +2,9 @@ if (drawing_d == false) then exit;
 
 var gwidth = display_get_gui_width();
 var gheight = display_get_gui_height();
-var mx = device_mouse_x_to_gui(0);
-var my = device_mouse_y_to_gui(0);
+var mx = (opener = oPlayer.id) ? device_mouse_x_to_gui(0) : CONTROLLER_X;
+var my = (opener = oPlayer.id) ? device_mouse_y_to_gui(0) : CONTROLLER_Y;
+var int = (opener = oPlayer.id) ? SHOOT : PAD_UNEQUIP_SUIT;
 var width = 300;
 var height = 100;
 var startx = 100;
@@ -30,23 +31,23 @@ draw_set_font(fFont);
 draw_text(startx + width/2,starty + height/2, "Select gun");
 draw_text(gwidth/2,starty + height/2, "Select ammoe");
 
-if (rectangle_hover(startx,starty, endx,endy)) 
+if (rectangle_hover_ext(mx,my, startx,starty, endx,endy)) 
 {
-	if (mouse_check_button_pressed(mb_left))
+	if (int)
 	{
 		drawing_g = !drawing_g;	
 	}
 }
-if (rectangle_hover(gwidth/2 - width/2,starty, gwidth/2 + width/2,endy)) 
+if (rectangle_hover_ext(mx,my, gwidth/2 - width/2,starty, gwidth/2 + width/2,endy)) 
 {
-	if (mouse_check_button_pressed(mb_left))
+	if (int)
 	{
 		drawing_a = !drawing_a;	
 	}
 }
-if (rectangle_hover(gwidth - width * 2,starty + height, gwidth - width,endy + height + height * discs_number)) 
+if (rectangle_hover_ext(mx,my, gwidth - width * 2,starty + height, gwidth - width,endy + height + height * discs_number)) 
 {
-	if (mouse_check_button_pressed(mb_left))
+	if (int)
 	{
 		drawing_d = !drawing_d;	
 	}
@@ -66,7 +67,7 @@ if (drawing_g == true)
 	
 	for (var i = wheel_cursor; i < max_draw + wheel_cursor; i++)
 	{
-		if (rectangle_hover(startx,starty + height, endx,starty + height + height * max_draw))
+		if (rectangle_hover_ext(mx,my, startx,starty + height, endx,starty + height + height * max_draw))
 		{
 			cursorg = (((endy - my) div height) * -1) + wheel_cursor;
 		}
@@ -83,7 +84,7 @@ if (drawing_g == true)
 		shader_reset();
 	}
 	
-	if (mouse_check_button_pressed(mb_left) && rectangle_hover(startx,starty + height, endx,starty + height + height * max_draw))
+	if (int && rectangle_hover_ext(mx,my,startx,starty + height, endx,starty + height + height * max_draw))
 	{
 		drawing_g = false;
 		instance_create_layer(x, y + 10, "Weapons", wps[cursorg]);
@@ -120,7 +121,7 @@ if (drawing_a == true)
 		shader_reset();
 	}
 	
-	if (mouse_check_button_pressed(mb_left) && rectangle_hover(gwidth/2 - width/2,starty + height, gwidth/2 + width/2,starty + height + height * ammo_number))
+	if (int && rectangle_hover_ext(mx,my, gwidth/2 - width/2,starty + height, gwidth/2 + width/2,starty + height + height * ammo_number))
 	{
 		drawing_a = false;
 		instance_create_layer(x, y + 15, "Weapons", ams[cursora]);

@@ -39,6 +39,7 @@
     {"propertyId":{"name":"shell","path":"objects/GUNS/GUNS.yy",},"objectId":{"name":"GUNS","path":"objects/GUNS/GUNS.yy",},"value":"oBlank","resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMOverriddenProperty",},
     {"propertyId":{"name":"bullets","path":"objects/GUNS/GUNS.yy",},"objectId":{"name":"GUNS","path":"objects/GUNS/GUNS.yy",},"value":"1","resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMOverriddenProperty",},
     {"propertyId":{"name":"damage","path":"objects/GUNS/GUNS.yy",},"objectId":{"name":"GUNS","path":"objects/GUNS/GUNS.yy",},"value":"9","resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMOverriddenProperty",},
+    {"propertyId":{"name":"sound","path":"objects/GUNS/GUNS.yy",},"objectId":{"name":"GUNS","path":"objects/GUNS/GUNS.yy",},"value":"sndSmithWessonModel686","resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMOverriddenProperty",},
   ],
   "parent": {
     "name": "Weapons",

@@ -1,5 +1,5 @@
-x_ += (lerp(follow.x,mouse_x, lerp_amount) - x_) * cam_speed;
-y_ += (lerp(follow.y,mouse_y, lerp_amount) - y_) * cam_speed;
+x_ += (lerp((follow.x + oPlayer2.x)/2,oPlayer2.x - follow.x, lerp_amount) - x_) + (lerp(follow.x,mouse_x, lerp_amount) - x_) * cam_speed;
+y_ += (lerp((follow.y + oPlayer2.y)/2,oPlayer2.y - follow.y, lerp_amount) - y_) + (lerp(follow.y,mouse_y, lerp_amount) - y_) * cam_speed;
 
 x = lerp(x,x_, cam_speed) + irandom_range(-shake_remain,shake_remain);
 y = lerp(y,y_, cam_speed) + irandom_range(-shake_remain,shake_remain);
@@ -28,7 +28,7 @@ camera_set_view_angle(cam, (position_angle * 1.5) * scale);
 //	multy += 9;
 //}
 
-xto_lerp = lerp(xto_lerp, multx + 256 * position_scale, 0.07);
-yto_lerp = lerp(yto_lerp, multy + 144 * position_scale, 0.07);
+xto_lerp = lerp(xto_lerp, multx + 256 * position_scale * min(128, max(1, point_distance(follow.x,follow.y, oPlayer2.x,oPlayer2.y) / 150)), 0.07);
+yto_lerp = lerp(yto_lerp, multy + 144 * position_scale * min(72, max(1, point_distance(follow.x,follow.y, oPlayer2.x,oPlayer2.y) / 150)), 0.07);
 
 camera_set_view_size(cam, xto_lerp,yto_lerp);	

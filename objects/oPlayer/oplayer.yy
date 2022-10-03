@@ -8,7 +8,10 @@
   "managed": true,
   "spriteMaskId": null,
   "persistent": false,
-  "parentObjectId": null,
+  "parentObjectId": {
+    "name": "PLAYER",
+    "path": "objects/PLAYER/PLAYER.yy",
+  },
   "physicsObject": false,
   "physicsSensor": false,
   "physicsShape": 1,
@@ -31,8 +34,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Player",
-    "path": "folders/Objects/Player/Player.yy",
+    "name": "Player 1",
+    "path": "folders/Objects/Player/Player/Player 1.yy",
   },
   "resourceVersion": "1.0",
   "name": "oPlayer",

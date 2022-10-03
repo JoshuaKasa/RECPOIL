@@ -1,4 +1,4 @@
-var distance = 1 - distance_to_object(oPlayer)/75;
+var distance = 1 - distance_to_object(PLAYER)/75;
 
 if state == "dis" then image_alpha = distance;
 else if state == "hit" 

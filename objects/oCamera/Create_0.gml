@@ -11,8 +11,8 @@ y_ = follow.y - 100;
 cam_speed = 0.15;
 lerp_amount = 0.09;
 
-xto_lerp = 256;
-yto_lerp = 144;
+xto_lerp = 320;
+yto_lerp = 180;
 xto = 320;
 yto = 180;
 

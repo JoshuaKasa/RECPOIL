@@ -12,7 +12,7 @@
     "path": "audiogroups/audiogroup_default",
   },
   "soundFile": "sndnosler21.mp3",
-  "duration": 2.832,
+  "duration": 4.512,
   "parent": {
     "name": "Weapons",
     "path": "folders/Sounds/Weapons.yy",

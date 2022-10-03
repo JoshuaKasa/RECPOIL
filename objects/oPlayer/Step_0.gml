@@ -4,8 +4,40 @@ var move_y = (DOWN - UP) * SPEED;
 	
 if (can_move == true)
 {
-	x += move_x * spd;
-	y += move_y * spd;
+	// Movement and collisions
+	if (move_x != 0 || move_y != 0)
+	{
+		// Hiding UI
+		UI_on = false;
+		UI_timer = 0;
+		
+		// Animating
+		hop_percent += 1/15;
+		hop_percent = wrap(hop_percent, 0, 1);
+		
+		hop_position = animcurve_channel_evaluate(hop_curve, hop_percent);
+		
+		y += hop_position / 2;
+			
+		// Dust
+		var inst = instance_create_layer(x,y + 4, "Instances", oDust);	
+		move_xx = move_x;
+		
+		repeat (2)
+		{
+			with (inst)
+			{
+				image_angle = irandom(360);
+				motion_add(other.move_xx + irandom_range(-6,6), irandom_range(-1,-5) * other.move_xx);	
+			}	
+		}
+	}
+	else image_angle = lerp(image_angle, 0, 0.3);
+	
+	if (place_meeting(x + move_x,y, oCollider)) then move_x = 0;
+	if (place_meeting(x,y + move_y, oCollider)) then move_y = 0;
+	x += move_x;
+	y += move_y;
 
 	x = clamp(x, 0, LIMITX);
 	y = clamp(y, 0, LIMITY);
@@ -36,34 +68,6 @@ if (can_move == true)
 		UI_x_start = lerp(UI_x_start,UI_default_x, 0.2);
 		UI_ammo_start = lerp(UI_ammo_start,UI_default_ammo, 0.2);
 	}
-	
-	// Creating dust
-	if (move_x != 0 || move_y != 0)
-	{
-		var inst = instance_create_layer(x,y + 1, "Instances", oDust);	
-		
-		// Hiding UI
-		UI_on = false;
-		UI_timer = 0;
-		
-		// Animating
-		hop_percent += 1/15;
-		hop_percent = wrap(hop_percent, 0, 1);
-		
-		hop_position = animcurve_channel_evaluate(hop_curve, hop_percent);
-		
-		y += hop_position / 2;
-	
-		repeat (3)
-		{
-			with (inst)
-			{
-				image_angle = irandom(360);
-				motion_add(other.image_xscale + irandom_range(-5,5), irandom_range(-1,-2) * other.image_xscale);	
-			}	
-		}
-	}
-	else image_angle = lerp(image_angle, 0, 0.3);
 }
 
 // Equip gun
@@ -74,8 +78,10 @@ if (guns < max_guns && !array_exists(inventory, gun))
 {
 	if (distance_to_object(gun) < 10)
 	{
-		if (EQUIP)
+		if (EQUIP && gun.owner == -1)
 		{
+			with (gun) owner = other.id;
+			
 			guns += 1;
 			array_push(inventory, gun);
 			currently_equipped = len;
@@ -160,6 +166,7 @@ if (UNEQUIP_GUN && hand != -1)
 		reloading = false;
 		in_hand = false;
 		equipped = false;
+		owner = -1;
 	}
 	array_delete(inventory, currently_equipped, 1);
 	currently_equipped = 0;
@@ -173,7 +180,7 @@ if (hp <= 0 && !instance_exists(oDeathscreen))
 {
 	can_move = false;
 	
-	instance_create_layer(0,0, "Instances", oDeathscreen);
+	instance_create_layer(0,0, "Instances", oDeathscreen, {player_dead: "Player 1"});
 }
 
 // Music discs
@@ -184,16 +191,16 @@ if (distance_to_object(oJukebox) < 10 && EQUIP)
 }
 
 // Throwing grenade
-if (GRENADE)
-{
-	var grenade = instance_create_layer(x,y, "Instances", oFlashGrenade);
+//if (GRENADE)
+//{
+//	var grenade = instance_create_layer(x,y, "Instances", oFlashGrenade);
 	
-	with (grenade) 
-	{
-		start_y = oPlayer.y;
-		direction = other.inventory[other.currently_equipped].image_angle;	
-	}
-}
+//	with (grenade) 
+//	{
+//		start_y = oPlayer.y;
+//		direction = other.inventory[other.currently_equipped].image_angle;	
+//	}
+//}
 
 // Listener
 audio_listener_position(x,y, 0);
@@ -201,29 +208,39 @@ audio_listener_position(x,y, 0);
 // Vending machine
 if (distance_to_object(oVendingMachine) < 10 && EQUIP)
 {
-	oVendingMachine.drawing_d = !oVendingMachine.drawing_d;
+	with (oVendingMachine)
+	{
+		drawing_d = !drawing_d;
+		opener = other.id;
+	}
 }
 
 // Calling aerial support
-if (!instance_exists(PLANES))
-{
-	if (CAS)
-	{
-		instance_create_layer(0,0, "Weapons", oF16);	
-	}
-}
+//if (!instance_exists(PLANES))
+//{
+//	if (CAS)
+//	{
+//		instance_create_layer(0,0, "Weapons", oF16);	
+//	}
+//}
 
 // Removing and putting suit
 var suit = instance_nearest(x,y, SUIT);
 
 if (UNEQUIP_SUIT)
 {
-	with (equipped_suit) equi = false;
+	with (equipped_suit) 
+	{
+		equi = false;
+		owner = -1;
+	}
 }
 if (distance_to_object(suit) < 10)
 {
-	if (EQUIP)
+	if (EQUIP && suit.owner == -1)
 	{
+		with (suit) owner = other.id;
+
 		if (suit.equi == false)
 		{
 			equipped_suit = suit;
@@ -238,3 +255,6 @@ if (distance_to_object(suit) < 10)
 		}
 	}
 }
+
+// Opening inventory
+if (keyboard_check_pressed(ord("I"))) then showing = !showing;

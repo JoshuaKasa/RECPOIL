@@ -1,3 +1,3 @@
 timer = 0;
-text = "You ";
+text = player_dead;
 alpha = 1;

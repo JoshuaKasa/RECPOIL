@@ -31,6 +31,7 @@
   "properties": [],
   "overriddenProperties": [
     {"propertyId":{"name":"damage","path":"objects/GUNS/GUNS.yy",},"objectId":{"name":"GUNS","path":"objects/GUNS/GUNS.yy",},"value":"150","resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMOverriddenProperty",},
+    {"propertyId":{"name":"sound","path":"objects/GUNS/GUNS.yy",},"objectId":{"name":"GUNS","path":"objects/GUNS/GUNS.yy",},"value":"sndPattern1853Enfield","resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMOverriddenProperty",},
   ],
   "parent": {
     "name": "Weapons",

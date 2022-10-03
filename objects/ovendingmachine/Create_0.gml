@@ -2,6 +2,8 @@ drawing_g = false;
 drawing_a = false;
 drawing_d = false;
 
+opener = -1;
+
 wps = [];
 ams = [];
 

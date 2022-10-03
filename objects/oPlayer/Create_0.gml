@@ -50,3 +50,5 @@ equipped_suit = -1;
 def_p = 0;
 def_e = 0;
 def_t = 0;
+
+showing = false;

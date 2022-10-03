@@ -120,3 +120,49 @@ if (drawing == true)
 		oJukebox.playing = false;
 	}
 }
+
+// Inventory
+if (showing == false) then exit;
+
+// Resizing GUI
+display_set_gui_size(CW,CH);
+
+// Drawing overlay
+draw_set_alpha(1);
+draw_set_color(c_dkgrey);
+draw_rectangle(0,0, GW,GH, false);
+
+// Drawing player sprite
+var scale = 7;
+var suit = (equipped_suit != -1) ? equipped_suit.sprite_index : -1;
+var player_offsetx = sprite_get_xoffset(sPlayer);
+var player_offsety = sprite_get_yoffset(sPlayer);
+var suit_offsetx = sprite_get_xoffset(sPlayer);
+var suit_offsety = sprite_get_yoffset(sPlayer);
+
+draw_sprite_ext(sPlayer, 1, GW/2 - player_offsetx * scale,GH/2 - player_offsety * scale, scale,scale, 0, c_white, 1);
+if (suit != -1) then draw_sprite_ext(suit, 1, GW/2 - suit_offsetx * scale,GH/2 * - suit_offsety * scale, scale,scale, 0, c_white, 1);
+
+// Drawing weapons
+draw_set_color(c_black);
+draw_rectangle(GW/2 + 25,10, GW - 10,GH/2 - 5, true);
+draw_rectangle(GW/2 + 25,GH/2 + 5, GW - 10,GH - 10, true);
+draw_set_alpha(0.2);
+draw_rectangle(GW/2 + 25,10, GW - 10,GH/2 - 5, false);
+draw_rectangle(GW/2 + 25,GH/2 + 5, GW - 10,GH - 10, false);
+
+if (inventory != [])
+{
+	for (var i = 0; i < array_length(inventory); i++)
+	{
+		var gun_offsetx = sprite_get_xoffset(inventory[i]);
+		var gun_offsety = sprite_get_yoffset(inventory[i]);
+		
+		shader_set(shLightGrey);
+		draw_sprite_ext(inventory[i].sprite_index, 1, GW - 5 - gun_offsetx,GH/2 - 2.5 - gun_offsety, 2,2, 0, c_white, 1);
+		shader_reset();
+	}
+}
+
+// Resetting shader
+shader_reset();

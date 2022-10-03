@@ -5,3 +5,8 @@ function rectangle_hover(start_x,start_y, end_x,end_y)
 	
 	return point_in_rectangle(mx,my, start_x,start_y, end_x,end_y);
 }
+
+function rectangle_hover_ext(mx,my, start_x,start_y, end_x,end_y)
+{
+	return point_in_rectangle(mx,my, start_x,start_y, end_x,end_y);
+}
